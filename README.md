@@ -10,3 +10,6 @@ PreferredAuthentications publickey
 IdentityFile ~/.ssh/git_id_rsa  
 3.ssh-add git_id_rsa  
 4.git clone ....
+
+Bood:
+https://golang.design/go-questions/
