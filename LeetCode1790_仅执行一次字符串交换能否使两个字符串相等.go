@@ -1,5 +1,6 @@
 package main
 
+// https://leetcode.cn/problems/check-if-one-string-swap-can-make-strings-equal/
 func areAlmostEqual(s1 string, s2 string) bool {
 	count := 0
 	index := -1

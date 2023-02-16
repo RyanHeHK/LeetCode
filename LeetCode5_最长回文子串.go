@@ -1,5 +1,6 @@
 package main
 
+// https://leetcode.cn/problems/longest-palindromic-substring/
 // 中心法
 func longestPalindrome(s string) string {
 	maxL := 0

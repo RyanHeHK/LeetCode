@@ -2,6 +2,7 @@ package main
 
 import "strings"
 
+// https://leetcode.cn/problems/reformat-phone-number/
 func reformatNumber(number string) string {
 	s := strings.ReplaceAll(number, " ", "")
 	s = strings.ReplaceAll(s, "-", "")

@@ -2,6 +2,7 @@ package main
 
 import "strconv"
 
+// https://leetcode.cn/problems/largest-substring-between-two-equal-characters/
 func isPalindrome(x int) bool {
 	res := true
 	s := strconv.Itoa(x)

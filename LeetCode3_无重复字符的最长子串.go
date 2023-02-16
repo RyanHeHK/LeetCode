@@ -1,6 +1,7 @@
 package main
 
-//滑动窗口
+// https://leetcode.cn/problems/longest-substring-without-repeating-characters/
+// 滑动窗口
 func lengthOfLongestSubstring(s string) int {
 	m := make(map[int32]int)
 	left := 0

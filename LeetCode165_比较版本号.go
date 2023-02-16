@@ -5,6 +5,7 @@ import (
 	"strings"
 )
 
+// https://leetcode.cn/problems/compare-version-numbers/
 func compareVersion(version1 string, version2 string) int {
 	v1 := strings.Split(version1, ".")
 	v2 := strings.Split(version2, ".")
