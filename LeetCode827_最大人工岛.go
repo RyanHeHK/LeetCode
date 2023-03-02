@@ -54,10 +54,3 @@ func largestIsland(grid [][]int) (ans int) {
 	}
 	return ans
 }
-
-func max(a, b int) int {
-	if b > a {
-		return b
-	}
-	return a
-}
