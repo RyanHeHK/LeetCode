@@ -1,4 +1,4 @@
-package 动态规划
+package dynamic_programming
 
 func wordBreak(s string, wordDict []string) bool {
 	wordDictSet := make(map[string]bool)

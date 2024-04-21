@@ -1,4 +1,4 @@
-package 动态规划
+package dynamic_programming
 
 import "LeetCode/utils"
 

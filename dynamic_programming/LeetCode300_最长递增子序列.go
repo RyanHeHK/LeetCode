@@ -1,4 +1,4 @@
-package 动态规划
+package dynamic_programming
 
 func lengthOfLIS(nums []int) int {
 	if len(nums) == 0 {
