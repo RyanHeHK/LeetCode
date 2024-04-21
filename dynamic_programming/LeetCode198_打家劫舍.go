@@ -4,15 +4,24 @@ func Rob(nums []int) int {
 	if len(nums) == 1 {
 		return nums[0]
 	}
-	res := make([]int, len(nums))
-	res[0] = nums[0]
-	res[1] = nums[1]
-	for i := 2; i < len(nums); i++ {
-		if nums[i-2]+nums[i] > nums[i-1] {
-			res[i] = nums[i-2] + nums[i]
+	d1 := nums[0]
+	d2 := 0
+	for i := 1; i < len(nums); i++ {
+		if i == 1 {
+			if d2+nums[i] > d1 {
+				d2 = d2 + nums[i]
+			} else {
+				d2 = d1
+			}
 		} else {
-			res[i] = nums[i-1]
+			if d1+nums[i] > d2 {
+				tmp := d1 + nums[i]
+				d1 = d2
+				d2 = tmp
+			} else {
+				d1 = d2
+			}
 		}
 	}
-	return res[len(nums)-1]
+	return d2
 }
