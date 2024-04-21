@@ -1,5 +1,7 @@
 package main
 
+import "LeetCode/utils"
+
 func diameterOfBinaryTree(root *TreeNode) int {
 	maxDeep := 0
 	if root == nil {
@@ -12,8 +14,8 @@ func diameterOfBinaryTree(root *TreeNode) int {
 		}
 		L := dfs(node.Left)
 		R := dfs(node.Right)
-		maxDeep = max(maxDeep, L+R)
-		return 1 + max(L, R)
+		maxDeep = utils.Max(maxDeep, L+R)
+		return 1 + utils.Max(L, R)
 	}
 	dfs(root)
 	return maxDeep

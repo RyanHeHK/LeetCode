@@ -1,5 +1,7 @@
 package main
 
+import "LeetCode/utils"
+
 func largestIsland(grid [][]int) (ans int) {
 	dir4 := []struct{ x, y int }{{-1, 0}, {1, 0}, {0, -1}, {0, 1}}
 	n := len(grid)
@@ -29,7 +31,7 @@ func largestIsland(grid [][]int) (ans int) {
 		for j, _ := range row {
 			if grid[i][j] != 0 {
 				markLand(i, j)
-				ans = max(ans, area[markIndex])
+				ans = utils.Max(ans, area[markIndex])
 				markIndex++
 			}
 		}
@@ -48,7 +50,7 @@ func largestIsland(grid [][]int) (ans int) {
 						}
 					}
 				}
-				ans = max(ans, conArea)
+				ans = utils.Max(ans, conArea)
 			}
 		}
 	}
