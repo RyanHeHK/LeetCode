@@ -1,4 +1,4 @@
-package main
+package 动态规划
 
 func lengthOfLIS(nums []int) int {
 	if len(nums) == 0 {

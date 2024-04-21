@@ -1,5 +1,7 @@
 package main
 
+import "LeetCode/utils"
+
 func insert(intervals [][]int, newInterval []int) [][]int {
 	ans := [][]int{}
 	left, right := newInterval[0], newInterval[1]
@@ -17,8 +19,8 @@ func insert(intervals [][]int, newInterval []int) [][]int {
 			ans = append(ans, interval)
 		} else {
 			// 与插入区间有交集，计算它们的并集
-			left = min(left, interval[0])
-			right = max(right, interval[1])
+			left = utils.Min(left, interval[0])
+			right = utils.Max(right, interval[1])
 		}
 	}
 	if !merged {

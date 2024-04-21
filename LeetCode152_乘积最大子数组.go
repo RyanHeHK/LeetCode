@@ -1,5 +1,7 @@
 package main
 
+import "LeetCode/utils"
+
 func maxProduct(nums []int) int {
 	maxRes := nums[0]
 	curMax := nums[0]
@@ -10,9 +12,9 @@ func maxProduct(nums []int) int {
 			curMax = curMin
 			curMin = temp
 		}
-		curMax = max(curMax*nums[i], nums[i])
-		curMin = min(curMin*nums[i], nums[i])
-		maxRes = max(curMax, maxRes)
+		curMax = utils.Max(curMax*nums[i], nums[i])
+		curMin = utils.Min(curMin*nums[i], nums[i])
+		maxRes = utils.Max(curMax, maxRes)
 	}
 	return maxRes
 }

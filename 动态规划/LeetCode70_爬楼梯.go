@@ -1,4 +1,4 @@
-package main
+package 动态规划
 
 func climbStairs(n int) int {
 	p, q, r := 0, 0, 1

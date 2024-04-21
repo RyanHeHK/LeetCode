@@ -1,6 +1,9 @@
 package main
 
-import "math"
+import (
+	"LeetCode/utils"
+	"math"
+)
 
 func minimumTotal(triangle [][]int) int {
 	n := len(triangle)
@@ -9,13 +12,13 @@ func minimumTotal(triangle [][]int) int {
 	for i := 1; i < n; i++ {
 		res[i] = res[i-1] + triangle[i][i]
 		for j := i - 1; j > 0; j-- {
-			res[j] = min(res[j-1], res[j]) + triangle[i][j]
+			res[j] = utils.Min(res[j-1], res[j]) + triangle[i][j]
 		}
 		res[0] += triangle[i][0]
 	}
 	ans := math.MaxInt32
 	for i := 0; i < n; i++ {
-		ans = min(ans, res[i])
+		ans = utils.Min(ans, res[i])
 	}
 	return ans
 }

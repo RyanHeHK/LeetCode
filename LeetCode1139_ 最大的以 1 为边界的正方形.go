@@ -1,5 +1,7 @@
 package main
 
+import "LeetCode/utils"
+
 func largest1BorderedSquare(grid [][]int) int {
 	maxBorder := 0
 	m, n := len(grid), len(grid[0])
@@ -29,11 +31,11 @@ func largest1BorderedSquare(grid [][]int) int {
 					length[i][j] = length[i][j-1] + 1
 				}
 			}
-			border := min(length[i][j], width[i][j])
+			border := utils.Min(length[i][j], width[i][j])
 			for border > 0 && (length[i-border+1][j] < border || width[i][j-border+1] < border) {
 				border--
 			}
-			maxBorder = max(maxBorder, border)
+			maxBorder = utils.Max(maxBorder, border)
 		}
 	}
 	return maxBorder * maxBorder
