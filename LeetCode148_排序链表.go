@@ -1,65 +1,51 @@
 package main
 
-func merge1(head1, head2 *ListNode) *ListNode {
-	dummyHead := &ListNode{}
-	temp, temp1, temp2 := dummyHead, head1, head2
-	for temp1 != nil && temp2 != nil {
-		if temp1.Val <= temp2.Val {
-			temp.Next = temp1
-			temp1 = temp1.Next
-		} else {
-			temp.Next = temp2
-			temp2 = temp2.Next
-		}
-		temp = temp.Next
-	}
-	if temp1 != nil {
-		temp.Next = temp1
-	} else if temp2 != nil {
-		temp.Next = temp2
-	}
-	return dummyHead.Next
+func sortList(head *ListNode) *ListNode {
+	return sortList148(head, nil)
 }
 
-func sortList(head *ListNode) *ListNode {
+func sortList148(head *ListNode, tail *ListNode) *ListNode {
 	if head == nil {
+		return nil
+	}
+	if head.Next == tail {
+		head.Next = nil
 		return head
 	}
-
-	length := 0
-	for node := head; node != nil; node = node.Next {
-		length++
-	}
-
-	dummyHead := &ListNode{Next: head}
-	for subLength := 1; subLength < length; subLength <<= 1 {
-		prev, cur := dummyHead, dummyHead.Next
-		for cur != nil {
-			head1 := cur
-			for i := 1; i < subLength && cur.Next != nil; i++ {
-				cur = cur.Next
-			}
-
-			head2 := cur.Next
-			cur.Next = nil
-			cur = head2
-			for i := 1; i < subLength && cur != nil && cur.Next != nil; i++ {
-				cur = cur.Next
-			}
-
-			var next *ListNode
-			if cur != nil {
-				next = cur.Next
-				cur.Next = nil
-			}
-
-			prev.Next = merge1(head1, head2)
-
-			for prev.Next != nil {
-				prev = prev.Next
-			}
-			cur = next
+	slow := head
+	fast := head
+	for fast != tail {
+		slow = slow.Next
+		fast = fast.Next
+		if fast != tail {
+			fast = fast.Next
 		}
+	}
+	return merge148(sortList148(head, slow), sortList148(slow, tail))
+}
+
+func merge148(head1 *ListNode, head2 *ListNode) *ListNode {
+	dummyHead := &ListNode{}
+	tmp := dummyHead
+	for head1 != nil && head2 != nil {
+		if head1.Val < head2.Val {
+			tmp.Next = head1
+			head1 = head1.Next
+		} else {
+			tmp.Next = head2
+			head2 = head2.Next
+		}
+		tmp = tmp.Next
+	}
+	for head1 != nil {
+		tmp.Next = head1
+		head1 = head1.Next
+		tmp = tmp.Next
+	}
+	for head2 != nil {
+		tmp.Next = head2
+		head2 = head2.Next
+		tmp = tmp.Next
 	}
 	return dummyHead.Next
 }
