@@ -42,7 +42,7 @@ func longestPalindrome(s string) string {
 	return s[begin : begin+maxL]
 }
 
-// 动态规划
+// dynamic_programming
 func longestPalindrome1(s string) string {
 	l := len(s)
 	dp := [][]bool{}

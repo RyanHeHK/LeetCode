@@ -1,5 +1,7 @@
 package main
 
+import "LeetCode/utils"
+
 func trap(height []int) int {
 	l := height[0]
 	r := height[len(height)-1]
@@ -7,9 +9,9 @@ func trap(height []int) int {
 	heightRight := make([]int, len(height))
 	res := 0
 	for i := range height {
-		l = max(l, height[i])
+		l = utils.Max(l, height[i])
 		heightLeft[i] = l
-		r = max(r, height[len(height)-1-i])
+		r = utils.Max(r, height[len(height)-1-i])
 		heightRight[len(height)-1-i] = r
 	}
 	for i := range heightLeft {

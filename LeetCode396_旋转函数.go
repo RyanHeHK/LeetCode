@@ -1,5 +1,7 @@
 package main
 
+import "LeetCode/utils"
+
 // https://leetcode.cn/problems/rotate-function/
 func maxRotateFunction(nums []int) int {
 	numSum := 0
@@ -13,7 +15,7 @@ func maxRotateFunction(nums []int) int {
 	ans := f
 	for i := len(nums) - 1; i > 0; i-- {
 		f += numSum - len(nums)*nums[i]
-		ans = max(ans, f)
+		ans = utils.Max(ans, f)
 	}
 	return ans
 }

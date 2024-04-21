@@ -1,5 +1,7 @@
 package main
 
+import "LeetCode/utils"
+
 func longestConsecutive(nums []int) int {
 	numSet := map[int]bool{}
 	for _, num := range nums {
@@ -15,7 +17,7 @@ func longestConsecutive(nums []int) int {
 			num++
 			count++
 		}
-		longestStreak = max(longestStreak, count)
+		longestStreak = utils.Max(longestStreak, count)
 	}
 	return longestStreak
 }

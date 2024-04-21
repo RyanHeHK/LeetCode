@@ -1,5 +1,7 @@
 package main
 
+import "LeetCode/utils"
+
 func maxAscendingSum(nums []int) int {
 	res := nums[0]
 	tmp := nums[0]
@@ -8,11 +10,11 @@ func maxAscendingSum(nums []int) int {
 		if nums[i] > last {
 			tmp += nums[i]
 		} else {
-			res = max(res, tmp)
+			res = utils.Max(res, tmp)
 			tmp = nums[i]
 		}
 		last = nums[i]
 	}
-	res = max(res, tmp)
+	res = utils.Max(res, tmp)
 	return res
 }
