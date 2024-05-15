@@ -1,6 +1,7 @@
 package main
 
 // https://leetcode.cn/problems/container-with-most-water/
+// 双指针
 func maxArea(height []int) int {
 	left := 0
 	right := len(height) - 1

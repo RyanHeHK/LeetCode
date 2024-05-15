@@ -3,6 +3,7 @@ package main
 import "sort"
 
 // https://leetcode.cn/problems/3sum/
+// 双指针
 func threeSum(nums []int) [][]int {
 	res := [][]int{}
 	sort.Ints(nums)

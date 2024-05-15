@@ -2,6 +2,7 @@ package main
 
 import "LeetCode/utils"
 
+// 双指针
 func trap(height []int) int {
 	l := height[0]
 	r := height[len(height)-1]
