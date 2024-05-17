@@ -1,6 +1,6 @@
 package main
 
-func maxProfit(prices []int) int {
+func maxProfit122(prices []int) int {
 	res := 0
 	buyPrice := prices[0]
 	sellPrice := prices[0]

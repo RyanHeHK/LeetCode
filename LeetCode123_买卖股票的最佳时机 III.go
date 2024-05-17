@@ -1,6 +1,6 @@
 package main
 
-func maxProfit1(prices []int) int {
+func maxProfit123(prices []int) int {
 	remain1, remain2 := -prices[0], -prices[0]
 	profit1, profit2 := 0, 0
 	for i := 1; i < len(prices); i++ {
