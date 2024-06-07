@@ -1,5 +1,7 @@
 package main
 
+import "LeetCode/utils"
+
 func coinChange(coins []int, amount int) int {
 	if amount == 0 {
 		return 0
@@ -17,7 +19,7 @@ func coinChange(coins []int, amount int) int {
 					if count[i] == -1 {
 						count[i] = count[i-c] + 1
 					} else {
-						count[i] = min(count[i], count[i-c]+1)
+						count[i] = utils.Min(count[i], count[i-c]+1)
 					}
 				}
 			}
