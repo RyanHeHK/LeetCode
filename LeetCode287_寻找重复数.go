@@ -1,12 +1,16 @@
 package main
 
 func findDuplicate(nums []int) int {
-	m := map[int]int{}
-	for i := range nums {
-		if m[nums[i]] == 1 {
-			return nums[i]
-		}
-		m[nums[i]]++
+	slow := nums[0]
+	fast := nums[nums[0]]
+	for slow != fast {
+		slow = nums[slow]
+		fast = nums[nums[fast]]
 	}
-	return -1
+	slow = 0
+	for slow != fast {
+		slow = nums[slow]
+		fast = nums[fast]
+	}
+	return slow
 }
