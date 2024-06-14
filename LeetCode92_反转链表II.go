@@ -1,29 +1,23 @@
 package main
 
-func reverseBetween(head *ListNode, m int, n int) *ListNode {
-	if head == nil || head.Next == nil || m == n {
+func reverseBetween(head *ListNode, left int, right int) *ListNode {
+	if head == nil || head.Next == nil || left == right {
 		return head
 	}
-
-	// 添加一个哑节点作为新链表的头部
-	dummy := &ListNode{Next: head}
-	prev := dummy
-
-	// 找到反转区间的前一个节点
-	for i := 1; i < m; i++ {
-		prev = prev.Next
+	dummy := &ListNode{
+		Next: head,
 	}
-
-	// 反转区间的第一个节点
-	curr := prev.Next
-
-	// 反转区间内的节点
-	for i := m; i < n; i++ {
-		next := curr.Next
-		curr.Next = next.Next
-		next.Next = prev.Next
-		prev.Next = next
+	pre := dummy
+	cur := head
+	for i := 1; i < left; i++ {
+		pre = pre.Next
+		cur = cur.Next
 	}
-
+	for i := left; i < right; i++ {
+		next := cur.Next
+		cur.Next = next.Next
+		next.Next = pre.Next
+		pre.Next = next
+	}
 	return dummy.Next
 }
